@@ -470,6 +470,58 @@ mark,
   height: 10px;
 }
 
+/* Image container */
+.imag {
+  position: relative;
+  display: block;
+  height: 250px; /* Fixed height */
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 20px; /* Space between image and text */
+}
+
+/* Always-visible overlay */
+.projects .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+/* Gallery icon styling */
+.projects .gallery-icon {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.projects .gallery-text {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Text content positioning */
+.projects .text {
+  background: white;
+  margin-top: -40px; /* Adjust based on your design */
+  padding-top: 40px !important; /* Compensate for negative margin */}
+
+ .imag:hover .image-overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
 
 .leadership-card {
   border-radius: 10px;
@@ -7900,7 +7952,7 @@ h1, h2, h3, h4, h5,
     height: 300px; }
   @media (min-width: 768px) {
     .cause-entry .text {
-      margin-top: -40px !important;
+      margin-top: -10px !important;
       background: #fff;
       width: 90%;
       margin: 0 auto; } }
