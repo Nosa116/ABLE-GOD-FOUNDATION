@@ -803,6 +803,55 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Generate unique gallery IDs for each project
+      const generateGalleryId = () => `gallery-${Math.random().toString(36).substr(2, 9)}`;
     
+      // Initialize galleries for original items
+      document.querySelectorAll('.cause-entry').forEach(cause => {
+        const galleryId = generateGalleryId();
+        const links = cause.querySelectorAll('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"]');
+        
+        links.forEach(link => {
+          link.dataset.fancybox = galleryId;
+        });
+      });
+    
+      // Initialize Owl Carousel
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: true,
+        responsive: {
+          0: { items: 1 },
+          600: { items: 2 },
+          1000: { items: 3 }
+        },
+        onInitialized: function(event) {
+          // Handle cloned items
+          event.page.forEach(page => {
+            const items = event.relatedTarget.items(page);
+            items.forEach(item => {
+              if (item.cloned) {
+                const galleryId = generateGalleryId();
+                const links = item.querySelectorAll('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"]');
+                links.forEach(link => {
+                  link.dataset.fancybox = galleryId;
+                });
+              }
+            });
+          });
+        }
+      });
+      
+    
+      // Re-initialize Fancybox after carousel changes
+      $('.owl-carousel').on('changed.owl.carousel', function(event) {
+        Fancybox.bind("[data-fancybox]", {});
+      });
+    });
+    </script>
   </body>
 </html>
