@@ -1,11 +1,16 @@
-document.getElementById('read-more-btn').addEventListener('click', function() {
-    var moreText = document.querySelectorAll('.more-text');
-    moreText.forEach(function(paragraph) {
-        if (paragraph.style.display === 'none' || paragraph.style.display === '') {
-            paragraph.style.display = 'block';
+document.addEventListener('DOMContentLoaded', function() {
+    var moreContent = document.querySelector('.more-content');
+    var readMoreBtn = document.getElementById('read-more-btn');
+
+    readMoreBtn.addEventListener('click', function() {
+        // Toggle the 'show' class
+        moreContent.classList.toggle('show');
+
+        // Update button text based on whether the content is shown
+        if (moreContent.classList.contains('show')) {
+            this.textContent = 'Read Less';
         } else {
-            paragraph.style.display = 'none';
+            this.textContent = 'Read More';
         }
     });
-    this.textContent = this.textContent === 'Read More' ? 'Read Less' : 'Read More';
 });

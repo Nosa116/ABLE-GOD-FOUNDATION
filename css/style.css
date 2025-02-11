@@ -432,6 +432,43 @@ mark,
   }
 /* end of services */
 
+.more-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.more-content.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Ensure the testimonial images are square and appropriately sized */
+.testimonial-img {
+  width: 400px;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* (Optional) Adjust carousel item padding if needed */
+.testimony-section .carousel-item {
+  padding: 0 60px;
+}
+
+/* Reposition carousel controls (if still needed) */
+#testimonialCarousel .carousel-control-prev {
+  left: -140px;
+  z-index: 2;
+}
+#testimonialCarousel .carousel-control-next {
+  right: -140px;
+  z-index: 2;
+}
+#testimonialCarousel .carousel-control-prev-icon,
+#testimonialCarousel .carousel-control-next-icon {
+  width: 10px;
+  height: 10px;
+}
 
 
 .leadership-card {
