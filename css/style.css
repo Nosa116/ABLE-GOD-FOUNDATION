@@ -524,7 +524,23 @@ mark,
  .imag:hover .image-overlay {
   background: rgba(0, 0, 0, 0.6);
 }
-
+/* Mobile Navigation Buttons */
+.owl-carousel.owl-drag .owl-item {
+  touch-action: pan-y !important;
+}
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  
+  
+  .owl-stage-outer {
+    overflow: visible !important;
+  }
+  
+  .owl-nav {
+    position: static;
+    transform: none;
+  }
+}
 
 
 .leadership-card {
