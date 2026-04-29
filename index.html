@@ -113,6 +113,9 @@
         <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
           <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Doing Nothing is Not An
             Option in Life</h1>
+          <div class="d-block d-md-none mobile-hero-services" style="font-size: 1.2rem; min-height: 2rem; font-weight: 500; margin-top: 1rem;" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+            <span id="mobile-hero-animated-text" style="color: #f86f2d; transition: opacity 0.5s ease-in-out;">Education & Empowerment</span>
+          </div>
           <!-- <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="https://vimeo.com/45830194" class="btn btn-white btn-outline-white px-4 py-3 popup-vimeo"><span class="icon-play mr-2"></span>Watch Video</a></p> -->
         </div>
       </div>
@@ -1021,6 +1024,29 @@
       $('.owl-carousel').on('changed.owl.carousel', function (event) {
         Fancybox.bind("[data-fancybox]", {});
       });
+    });
+
+    // Mobile Hero Text Animation
+    document.addEventListener("DOMContentLoaded", function() {
+      const texts = [
+        "Education & Empowerment",
+        "Community Support",
+        "Specialized Care",
+        "Entrepreneurship Training"
+      ];
+      let currentIndex = 0;
+      const textElement = document.getElementById("mobile-hero-animated-text");
+      
+      if(textElement) {
+        setInterval(() => {
+          textElement.style.opacity = 0;
+          setTimeout(() => {
+            currentIndex = (currentIndex + 1) % texts.length;
+            textElement.innerText = texts[currentIndex];
+            textElement.style.opacity = 1;
+          }, 500);
+        }, 3000);
+      }
     });
   </script>
 </body>
